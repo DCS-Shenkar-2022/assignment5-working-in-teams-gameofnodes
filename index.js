@@ -9,6 +9,14 @@ app.use(express.json());
 
 app.use('/assets', express.static(`${__dirname}/public`));
 
+app.param('githubUserName',(req, res, next, value) => {
+	/(\d)|(\s)/.test(value)?res.send('githubUserName is invalid'):next();
+})
+
+app.param('repoName',(req, res, next, value) => {
+	/(\d)|(\s)/.test(value)?res.send('repoName is invalid'):next();
+})
+
 app.get('/api/v1/githubUser/:githubUserName/avatar', (req, res) => {
 	let src = `images/${req.params.githubUserName}.jpg`;
 
