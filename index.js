@@ -41,3 +41,45 @@ app.get('/api/v1/githubUser/:githubUserName/avatar', (req, res) => {
 	console.log(`Listening on port ${port}`);
 });
 
+const axios = require('axios');
+//GET request
+axios.get('https://api.github.com/users/:userName')
+	.then(function(response) {
+		console.log(response.data);
+		console.log(response.status);
+		console.log(response.statusText);
+	})
+	.catch(function(error) {
+		console.log(error);
+	})
+	// .then(function () {
+	// 	//always executed
+	// });
+
+//GET request
+axios.get('https://api.github.com/users/:userName/:repoName')
+	.then(function(response) {
+		console.log(response.data);
+		console.log(response.status);
+		console.log(response.statusText);
+	})
+	.catch(function(error) {
+		console.log(error);
+	})
+	// .then(function () {
+	// 	//always executed
+	// });
+
+//GET request
+axios.get('https://api.github.com/users/:userName/:repoName/contributors')
+	.then(function(response) {
+		console.log(response.data);
+		console.log(response.status);
+		console.log(response.statusText);
+	})
+	.catch(function(error) {
+		console.log(error);
+	})
+	// .then(function () {
+	// 	//always executed
+	// });
