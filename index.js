@@ -51,10 +51,7 @@ axios.get('https://api.github.com/users/:userName')
 	})
 	.catch(function(error) {
 		console.log(error);
-	})
-	// .then(function () {
-	// 	//always executed
-	// });
+	});
 
 //GET request
 axios.get('https://api.github.com/users/:userName/:repoName')
@@ -65,10 +62,8 @@ axios.get('https://api.github.com/users/:userName/:repoName')
 	})
 	.catch(function(error) {
 		console.log(error);
-	})
-	// .then(function () {
-	// 	//always executed
-	// });
+	});
+
 
 //GET request
 axios.get('https://api.github.com/users/:userName/:repoName/contributors')
@@ -79,7 +74,4 @@ axios.get('https://api.github.com/users/:userName/:repoName/contributors')
 	})
 	.catch(function(error) {
 		console.log(error);
-	})
-	// .then(function () {
-	// 	//always executed
-	// });
+	});
