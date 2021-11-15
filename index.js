@@ -43,35 +43,30 @@ app.get('/api/v1/githubUser/:githubUserName/avatar', (req, res) => {
 
 const axios = require('axios');
 //GET request
-axios.get('https://api.github.com/users/:userName')
-	.then(function(response) {
-		console.log(response.data);
-		console.log(response.status);
-		console.log(response.statusText);
+axios.get('https://api.github.com/users/:githubUserName')
+	.then((response) => {
+		return response;
 	})
-	.catch(function(error) {
+
+	.catch((error) => {
 		console.log(error);
 	});
 
 //GET request
-axios.get('https://api.github.com/users/:userName/:repoName')
-	.then(function(response) {
-		console.log(response.data);
-		console.log(response.status);
-		console.log(response.statusText);
+axios.get('https://api.github.com/users/:githubUserName/:repoName')
+	.then((response) => {
+		return response;
 	})
-	.catch(function(error) {
+	.catch((error) => {
 		console.log(error);
 	});
 
 
 //GET request
-axios.get('https://api.github.com/users/:userName/:repoName/contributors')
-	.then(function(response) {
-		console.log(response.data);
-		console.log(response.status);
-		console.log(response.statusText);
+axios.get('https://api.github.com/users/:githubUserName/:repoName/contributors')
+	.then((response) => {
+		return response;
 	})
-	.catch(function(error) {
+	.catch((error) => {
 		console.log(error);
 	});
