@@ -2,6 +2,7 @@ const { application } = require('express');
 const express = require('express');
 const fs = require('fs');
 const app = express();
+const axios = require('axios');
 const port = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
@@ -41,7 +42,67 @@ app.get('/api/v1/githubUser/:githubUserName/avatar', (req, res) => {
 	console.log(`Listening on port ${port}`);
 });
 
-const axios = require('axios');
+
+
+function getUser(githubUserName) {
+	return new Promise((resolve, reject) => {
+		axios.get(`https://api.github.com/users/${githubUserName}`)
+			.then(response => {
+				resolve(response.data);
+			}).catch(err => {
+				reject(err);
+			});
+	});
+}
+
+function getUserRepo(githubUserName, repoName) {
+	return new Promise((resolve, reject) => {
+	axios.get(`https://api.github.com/repos/${githubUserName}/${repoName}`)
+		.then(response => {
+			resolve(response.data);
+		}).catch(err => {
+			reject(err);
+		});
+	})
+}
+
+function getUserRepoContributors(githubUserName, repoName) {
+	return new Promise((resolve, reject) => {
+	axios.get(`https://api.github.com/repos/${githubUserName}/${repoName}/contributors`)
+		.then(response => {
+			resolve(response.data);
+		}).catch(err => {
+			reject(err);
+		});
+	})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ********************************************
 //GET request
 axios.get('https://api.github.com/users/:githubUserName')
 	.then((response) => {
