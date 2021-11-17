@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/DCS-Shenkar-2022/assignment5-working-in-teams-gameofnodes#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "express": "^4.17.1"
   }
 }
